@@ -1,0 +1,28 @@
+app_id: google-chrome
+app_name: Chrome
+shortcuts:
+  - heading: "Tabs"
+    items:
+      - ["New tab", "ctrl", "t"]
+      - ["Close tab", "ctrl", "w"]
+      - ["Reopen closed tab", "ctrl", "shift", "t"]
+      - ["Next tab", "ctrl", "tab"]
+      - ["Previous tab", "ctrl", "shift", "tab"]
+      - ["Go to tab 2 etc.", "ctrl", "shift", "tab"]
+
+
+  - heading: "Navigation"
+    items:
+      - ["Address bar focus", "ctrl", "l"]
+      - ["Reload page", "ctrl", "r"]
+      - ["Hard reload", "ctrl", "shift", "r"]
+      - ["Go back", "alt", "←"]
+      - ["Go forward", "alt", "→"]
+
+  - heading: "Page Actions"
+    items:
+      - ["Find in page", "ctrl", "f"]
+      - ["Bookmark page", "ctrl", "d"]
+      - ["Downloads", "ctrl", "j"]
+      - ["History", "ctrl", "h"]
+      - ["Developer tools", "ctrl", "shift", "i"]

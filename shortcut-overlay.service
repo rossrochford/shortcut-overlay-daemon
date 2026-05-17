@@ -1,0 +1,13 @@
+[Unit]
+Description=Keyboard Shortcut Overlay Daemon
+After=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=/path/to/your/cloned/repo
+ExecStart=/usr/bin/just run-daemon
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=graphical-session.target
