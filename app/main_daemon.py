@@ -62,7 +62,7 @@ def resolve_overlay_image(config, detected_id):
     if not os.path.exists(image_filepath):
         if target_id == FALLBACK_APP_ID:
             return create_error_image_pixbuf(
-                f"No active application detected, no image found for fallback_app_id '{FALLBACK_APP_ID}'"
+                f"No active application detected. \n\n No image found for fallback_app_id '{FALLBACK_APP_ID}'"
             )
         else:
             return create_error_image_pixbuf(

@@ -2,15 +2,15 @@
 name = "shortcut-overlay-daemon"
 version = "0.1.0"
 description = "Background daemon that detects the active application and shows a relevant keyboard shortcut overlay."
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
+    "shot-scraper>=1.9.1",
+    "playwright",
     "pyqt6",
     "PyGObject",
     "pillow",
     "PyYAML",
     "Jinja2",
-    "shot-scraper",
-    "playwright"
 ]
 
 [tool.uv]

@@ -28,6 +28,9 @@ run-daemon:
     uv run python app/main_daemon.py
 
 
+stop-service:
+    systemctl --user stop shortcut-overlay.service
+
 restart-service:
     systemctl --user restart shortcut-overlay.service
 

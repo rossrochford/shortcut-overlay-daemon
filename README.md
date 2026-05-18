@@ -6,13 +6,14 @@ An overlay panel for displaying keyboard shortcuts. It detects the active/top-mo
 
 
 ## Prerequisites
-- Install `just`: https://github.com/casey/just
+- `uv`: https://github.com/astral-sh/uv
+- `just`: https://github.com/casey/just
 
 
 ### Python GUI Toolkit Headers
 Install the `PyGObject` bindings via your system package manager:
-- **Arch**: `sudo pacman -S python-gobject cairo pkgconf`
 - **Ubuntu/Debian**: `sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-3.0`
+- **Arch**: `sudo pacman -S python-gobject cairo pkgconf`
 
 ### App Detection Tool
 
@@ -34,8 +35,16 @@ Depending on your OS, you will need one of these tools for app detection:
 git clone github.com/rossrochford/shortcut-overlay-daemon.git
 cd shortcut-overlay-daemon/
 
-# wn need additional CSS & JS assets from a second github repo 
+# this clones a second github repo with CSS & JS assets
 just clone-assets
+```
+
+### Create a Python virtualenv with uv
+```bash
+uv sync
+
+# setup Playwright with chromium
+uv run playwright install chromium  
 ```
 
 ### Create a yaml file of shortcuts
@@ -61,12 +70,6 @@ If no applications are open in a workspace, the daemon will use this app id inst
 ### Generate shortcut images
 
 Your `.shortcuts` yaml files will be rendered into a HTML page `output/gallery.html` and then finally into PNG images. The overlay will simply display these images.
-
-If this is your first time using Playwright on your system, you must initialize the headless Chromium browser binaries first:
-
-```bash
-uv run --with playwright python -m playwright install chromium
-```
 
 To generate the images, run:
 ```bash

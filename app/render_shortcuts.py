@@ -5,6 +5,7 @@ from os.path import join as join_path, abspath
 import subprocess
 import sys
 import yaml
+from pathlib import Path
 
 from utils import load_config
 
@@ -114,21 +115,66 @@ def create_images(config):
     shots_yaml_path = os.path.abspath(
         config['output']['scraper_shot_config_path']
     )
-    scale = config['ui']['screenshot_scale']
+    scale = str(config['ui']['screenshot_scale'])
 
     try:
         # Executes the terminal command directly from Python
+        # result = subprocess.run(
+        #     [
+        #         "shot-scraper",
+        #         "multi",
+        #         shots_yaml_path,
+        #         "--scale-factor", str(scale),
+        #     ],
+        #     check=True,
+        #     capture_output=True,
+        #     text=True
+        # )
+
+        # result = subprocess.run(
+        #     [
+        #         str(shot_scraper),
+        #         "-m",
+        #         "shot_scraper",
+        #         "multi",
+        #         shots_yaml_path,
+        #         "--scale-factor",
+        #         str(scale),
+        #     ],
+        #     check=True,
+        #     capture_output=True,
+        #     text=True
+        # )
+
+        # result = subprocess.run(
+        #     [
+        #         "uv",
+        #         "run",
+        #         "shot-scraper",
+        #         "multi",
+        #         shots_yaml_path,
+        #         "--scale-factor",
+        #         str(scale),
+        #     ],
+        #     check=True,
+        # )
+
+        venv_bin = Path(sys.executable).parent
+        shot_scraper = str(venv_bin / "shot-scraper")
+
         result = subprocess.run(
             [
-                "shot-scraper",
+                shot_scraper,
                 "multi",
                 shots_yaml_path,
-                "--scale-factor", str(scale),
+                "--scale-factor",
+                scale
             ],
             check=True,
             capture_output=True,
             text=True
         )
+
         print(result.stdout)
         print("🎉 All shortcut images captured cleanly!")
 
@@ -159,6 +205,9 @@ def main():
             all_shortcut_data.append(data)
         else:
             print(f'Skipping {fp}: missing fields')
+
+    if len(all_shortcut_data) == 0:
+        sys.exit('no valid shortcut files found')
 
     create_html_gallery(all_shortcut_data, config)
 
