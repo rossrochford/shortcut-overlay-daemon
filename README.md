@@ -138,4 +138,4 @@ systemctl --user enable shortcut-overlay.service
 ### Limitations
 - The overlay shows a single image with a fixed width. If your list exceeds the height of your display, the image will show as cropped. There is no support for scrolling or pagination.
 - The application does not capture the desktop focus so it cannot itself capture keyboard shortcuts! So for example pressing `Esc` will not close the overlay and the top-most application will respond to that key press.
-- Without capturing focus it's also not possible to have a "hold to view" behaviour, where for example showing the overlay while the user holds down a key (hide on release).
+- Without capturing focus it's also not possible to have a "hold to view" behaviour, where the overlay displays while the user holds down a key and disappears on release.
