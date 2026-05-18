@@ -2,7 +2,7 @@
 
 An overlay panel for displaying keyboard shortcuts. It detects the active/top-most application to show relevant shortcuts.
 
-![Screenshot of overlay](chrome_example.gif)
+![Screenshot of overlay](examples/chrome_example.gif)
 
 
 ## Prerequisites
@@ -49,7 +49,7 @@ uv run playwright install chromium
 
 ### Create a yaml file of shortcuts
 
-See `chrome_example.shortcuts` for an example of the format. It should be valid yaml and have a `.shortcuts` extension.
+See `examples/chrome_example.shortcuts` for an example of the format. It should be valid yaml and have a `.shortcuts` extension.
  
 The `app_id` field value is used to map the active app to the shortcuts file. If you don't know an app's id string, just activate the overlay and the error message should display it.
 
@@ -60,7 +60,7 @@ Some special keys (modifiers and arrows) have replacement rules, so for example 
 Create a `config.yaml` file and add a path to: `shortcut_data_directories`. This path should contain files with extension `.shortcuts`.
 
 ```bash
-cp config_example.yaml config.yaml
+cp examples/config_example.yaml ./config.yaml
 
 vim config.yaml
 ```
