@@ -64,5 +64,6 @@ venv.bak/
 # ruff
 .ruff_cache/
 
+config.yaml
 output/
 vendor_assets/*

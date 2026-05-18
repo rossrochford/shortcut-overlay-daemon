@@ -25,11 +25,8 @@ def find_shortcut_filepaths(config):
     return filepaths
 
 
-def create_html_gallery(all_shortcut_data, config):
+def create_html_gallery(all_shortcut_data, config, output_dir):
 
-    # Determine output paths from config
-    output_dir = abspath(str(config['output']['output_dir']))
-    os.makedirs(output_dir, exist_ok=True)
     gallery_abs_path = abspath(config['output']['gallery_path'])
     ss_config_path = config['output']['scraper_shot_config_path']
 
@@ -209,7 +206,7 @@ def main():
     if len(all_shortcut_data) == 0:
         sys.exit('no valid shortcut files found')
 
-    create_html_gallery(all_shortcut_data, config)
+    create_html_gallery(all_shortcut_data, config, output_dir)
 
     create_images(config)
 

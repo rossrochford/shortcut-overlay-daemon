@@ -32,7 +32,7 @@ Depending on your OS, you will need one of these tools for app detection:
 
 ### Clone the repos
 ```bash
-git clone github.com/rossrochford/shortcut-overlay-daemon.git
+git clone git@github.com:rossrochford/shortcut-overlay-daemon.git
 cd shortcut-overlay-daemon/
 
 # this clones a second github repo with CSS & JS assets
@@ -57,9 +57,11 @@ Some special keys (modifiers and arrows) have replacement rules, so for example 
 
 ### Point config.yaml to your shortcut files
 
-Edit `shortcut_data_directories` in `config.yaml`, add a path to a directory containing files with extension `.shortcuts`.
+Create a `config.yaml` file and add a path to: `shortcut_data_directories`. This path should contain files with extension `.shortcuts`.
 
 ```bash
+cp config_example.yaml config.yaml
+
 vim config.yaml
 ```
 
@@ -74,6 +76,9 @@ Your `.shortcuts` yaml files will be rendered into a HTML page `output/gallery.h
 To generate the images, run:
 ```bash
 just render
+
+# `output/` should now have gallery.html, shots.yaml and one .png image per .shortcuts file
+ls output/
 ```
 
 ### Confirm the daemon works

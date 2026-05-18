@@ -5,17 +5,19 @@ fifo_pipe_path: "/tmp/shortcut-overlay-pipe"
 
 # list of paths containing keyboard shortcuts (.md and/or .yaml files)
 shortcut_data_directories:
-  - "/home/rossr/Documents/notes_mounted/Staying_Organized/Keyboard_Shortcuts"
+  - "/absolute/path/to_my/keyboard_shortcut_files/"
 
 
 daemon:
-  # fallback to this app id when no windows are open. This is useful for displaying system-wide shortcuts.
-  fallback_app_id: "cosmic_desktop"
+  # Fallback to this app id when no windows are open.
+  # This is useful for displaying system-wide shortcuts.
+  fallback_app_id: "ubuntu_desktop"
 
 
 ui:
   css_scale: 1.5
   screenshot_scale: 1.0
+
 
 # Output paths
 output:
